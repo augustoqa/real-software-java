@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.time.LocalDate;
 import java.time.Month;
 import java.util.List;
 
@@ -38,5 +39,16 @@ public class BankStatementAnalyzer {
         System.out.println("The total salary received is " +
                 bankStatementProcessor.calculateTotalForCategory("Salary"));
 
+        System.out.println("The maximum Transaction between 01-02-2017 and 03-02-2017 is: " +
+                bankStatementProcessor.getMaximumBankTransactionBetweenDateRanges(
+                        LocalDate.of(2017, 2, 1),
+                        LocalDate.of(2017, 2, 3)
+                ));
+
+        System.out.println("The minimum Transaction between 30-01-2017 and 02-02-2017 is: " +
+                bankStatementProcessor.getMinimumBankTransactionBetweenDateRanges(
+                        LocalDate.of(2017, 1, 30),
+                        LocalDate.of(2017, 2, 2)
+                ));
     }
 }
