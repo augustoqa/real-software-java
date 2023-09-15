@@ -39,7 +39,9 @@ public class BankStatementAnalyzer {
                 bankStatementProcessor.calculateTotalForCategory("Salary"));
 
         final List<BankTransaction> transactions =
-                bankStatementProcessor.findTransactions(new BankTransactionInFebruaryAndExpensive());
+                bankStatementProcessor.findTransactions(
+                        bankTransaction -> bankTransaction.getDate().getMonth() == Month.FEBRUARY
+                                && bankTransaction.getAmount() >= 1_000);
 
         System.out.println("Transactions greater than 1_000 in February are " +
                 transactions);
