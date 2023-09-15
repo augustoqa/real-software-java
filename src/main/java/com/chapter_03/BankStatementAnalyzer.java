@@ -38,5 +38,10 @@ public class BankStatementAnalyzer {
         System.out.println("The total salary received is " +
                 bankStatementProcessor.calculateTotalForCategory("Salary"));
 
+        final List<BankTransaction> transactions =
+                bankStatementProcessor.findTransactions(new BankTransactionInFebruaryAndExpensive());
+
+        System.out.println("Transactions greater than 1_000 in February are " +
+                transactions);
     }
 }
